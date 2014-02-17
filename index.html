@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app="Todo">
+  <head>
+    <script src="angular.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body >
+    <div ng-controller= "TasksCtrl" >
+      
+        I have {{lists.length}} lists:
+        <ul>
+          <li ng-repeat="list in lists">{{list.listName}} - # of Tasks: {{list.tasks.length}}
+        </ul>  
+      </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="services/tasksService.js"></script>
+    <script src="controllers/tasksctrl.js"></script>
+  </body>
+</html>
