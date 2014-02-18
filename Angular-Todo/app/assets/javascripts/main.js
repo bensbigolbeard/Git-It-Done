@@ -1,3 +1,9 @@
+//= require_self
+//= require_tree ./controllers/main
+//= require_tree ./filters/main
+//= require_tree ./services/main
+//= require_tree ./directives/main
+
 Todo = angular.module("Todo", ['ui.router']);
 
 // Application Routing
