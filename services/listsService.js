@@ -1,4 +1,4 @@
-angular.module('Todo').factory('taskListsService', function () {
+angular.module('Todo').factory('listsService', function () {
   var taskListData = {
     data: {
       lists: [
@@ -21,6 +21,9 @@ angular.module('Todo').factory('taskListsService', function () {
   return {
       lists: function () {
           return taskListData.data.lists;
+      },
+      getCurrentList: function (list_index) {
+          return taskListData.data.lists[list_index]
       }
   };
 });

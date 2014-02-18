@@ -1,20 +1,31 @@
 <!doctype html>
 <html ng-app="Todo">
   <head>
-    <script src="angular.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   </head>
-  <body >
-    <div ng-controller= "TasksCtrl" >
-      
-        I have {{lists.length}} lists:
-        <ul>
-          <li ng-repeat="list in lists">{{list.listName}} - # of Tasks: {{list.tasks.length}}
-        </ul>  
+  <body class="container">
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="#">Git It Done</a>
+        <ul class="nav">
+          <li><a ui-sref="listIndex">My Lists</a></li>
+          <li><a ui-sref="#">Create New List</a></li>
+        </ul>
       </div>
     </div>
+
+  <div class="row">
+    <div class="span12">
+      <div class="" ui-view></div>        
+    </div>
+  </div>        
+    
+    <script src="angular.min.js"></script>
+    <script src="angular-ui-router.min.js"></script>
     <script src="main.js"></script>
-    <script src="services/tasksService.js"></script>
-    <script src="controllers/tasksctrl.js"></script>
+    <script src="services/listsService.js"></script>
+    <script src="controllers/ListIndexCtrl.js"></script>
+    <script src="controllers/ListCtrl.js"></script>
   </body>
 </html>
