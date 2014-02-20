@@ -1,6 +1,6 @@
-angular.module('Todo').controller('ListIndexCtrl', ['$scope', '$location', 'listsService', function ($scope, $location, taskListsService) {
+angular.module('Todo').controller('ListIndexCtrl', ['$scope', '$location', 'listsService', function ($scope, $location, listsService) {
 
-  $scope.lists = taskListsService.lists();
+  $scope.lists = listsService.lists();
 
   $scope.viewList = function(listId){
     $location.url('/list/'+listId)
