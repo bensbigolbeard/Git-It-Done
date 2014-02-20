@@ -5,9 +5,9 @@ Todo.config(['$routeProvider', function($routeProvider){
   // Route for '/list'
   $routeProvider
     // .when('/list/new', { templateUrl: '../assets/mainCreatePost.html', controller: 'CreatePostCtrl' } )
-    .when('/list/:listId', { templateUrl: "/listView.html'", controller: 'ListCtrl' } );
+    .when('/list/:listId', { templateUrl: "<%=asset_path '/assets/listIndex-63d1524478c466161cf537f9bf9de9d9.html'%>", controller: 'ListCtrl' } );
 
   //  Default
-  $routeProvider.otherwise({ templateUrl: "/listIndex.html", controller: 'ListIndexCtrl' } );
+  $routeProvider.otherwise({ templateUrl: "<%=asset_path '/assets/listIndex.html'%>", controller: 'ListIndexCtrl' } );
 
 }]);
