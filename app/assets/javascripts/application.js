@@ -16,7 +16,5 @@
 //= require angular-route.min.js
 //= require angular-ui-router.min.js
 //= require main.js
-//= depend_on_asset "listIndex.html"
-//= depend_on_asset "listView.html"
 //= require_tree ./services
 //= require_tree ./controllers
