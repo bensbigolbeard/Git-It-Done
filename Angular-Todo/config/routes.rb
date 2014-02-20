@@ -1,7 +1,12 @@
 AngularTodo::Application.routes.draw do
+
   root 'lists#index'
 
-  
+  resources :lists, except: [:show, :edit, :new]
+  resources :tasks, except: [:index, :show, :edit, :new]
+    # resources :tasks
+
+  # get '/lists' => 'lists#index', as: :lists
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
