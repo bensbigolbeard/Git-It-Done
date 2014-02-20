@@ -1,8 +1,8 @@
 AngularTodo::Application.routes.draw do
 
-  root 'lists#index'
+  root 'lists#home'
 
-  resources :lists, except: [:show, :edit, :new]
+  resources :lists, except: [:edit, :new]
   resources :tasks, except: [:index, :show, :edit, :new]
     # resources :tasks
 

@@ -1,5 +1,5 @@
-//= depend_on_asset "listIndex.html"
-//= depend_on_asset "listView.html"
+// depend_on_asset "listIndex.html"
+// depend_on_asset "listView.html"
 
 Todo = angular.module("Todo", ['ngRoute']);
 
@@ -7,20 +7,19 @@ Todo.config(['$routeProvider', function($routeProvider){
   // Route for '/list'
   $routeProvider
     // .when('/list/new', { templateUrl: '../assets/mainCreateList.html', controller: 'CreateListCtrl' } )
-    .when('/list/:listId', { templateUrl: "<%= asset_url('/assets/listView.html')%>", controller: 'ListCtrl' } );
+    .when('/list/:listId', { templateUrl: "/assets/listView.html", controller: 'ListCtrl' } );
 
   //  Default
-  $routeProvider.otherwise({ templateUrl: "<%= asset_url('/assets/listIndex')%>", controller: 'ListIndexCtrl' } );
-
+  $routeProvider.otherwise({ templateUrl: "/assets/listIndex.html", controller: 'ListIndexCtrl' } );
 }]);
-/* Use in production only for now due to asset hash filepath
-Todo.config(['$routeProvider', function($routeProvider){
-  // Route for '/list'
-  $routeProvider
-    // .when('/list/new', { templateUrl: '../assets/mainCreateList.html', controller: 'CreateListCtrl' } )
-    .when('/list/:listId', { templateUrl: "/assets/listView-1a221c61c16e2130320ad4918fd331db.html", controller: 'ListCtrl' } );
+// Use in production only for now due to asset hash filepath
+// Todo.config(['$routeProvider', function($routeProvider){
+//   // Route for '/list'
+//   $routeProvider
+//     // .when('/list/new', { templateUrl: '../assets/mainCreateList.html', controller: 'CreateListCtrl' } )
+//     .when('/list/:listId', { templateUrl: "/assets/listView-1a221c61c16e2130320ad4918fd331db.html", controller: 'ListCtrl' } );
 
-  //  Default
-  $routeProvider.otherwise({ templateUrl: "/assets/listIndex-63d1524478c466161cf537f9bf9de9d9.html", controller: 'ListIndexCtrl' } );
+//   //  Default
+//   $routeProvider.otherwise({ templateUrl: "/assets/listIndex-63d1524478c466161cf537f9bf9de9d9.html", controller: 'ListIndexCtrl' } );
 
-}]);*/
+// }]);
