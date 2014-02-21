@@ -1,5 +1,6 @@
 AngularTodo::Application.routes.draw do
 
+  devise_for :users
   root 'lists#home'
 
   resources :lists, except: [:edit, :new]
