@@ -14,6 +14,7 @@ angular.module('Todo').controller('ListCtrl', ['$scope', '$http', '$q', '$locati
       .then(function(response) {
         if (typeof response.data === 'object') {
           $scope.currentList.tasks.push(response.data);
+          $scope.input = '';
         } else {
           // invalid response
           return $q.reject(response.data);
