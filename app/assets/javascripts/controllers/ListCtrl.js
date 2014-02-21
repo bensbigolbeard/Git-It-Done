@@ -26,7 +26,23 @@ angular.module('Todo').controller('ListCtrl', ['$scope', '$http', '$q', '$locati
   };
 
   $scope.checkTask = function(task){
-    console.log("checked", task);
+    console.log("checked", task.checked);
+    task.checked = true;
+    console.log("checked", task.checked);
+    $http.put('/tasks/'+task.id+'.json', task.checked)
+      .then(function(response) {
+        if (typeof response.data === 'object') {
+          // $scope.currentList.tasks.push(response.data);
+          console.log('task successfully updated')
+        } else {
+          // invalid response
+          return $q.reject(response.data);
+        }
+
+      }, function(response) {
+        // something went wrong
+        return $q.reject(response.data);
+    });
   };
 
   $scope.viewLists = function() {

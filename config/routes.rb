@@ -3,7 +3,7 @@ AngularTodo::Application.routes.draw do
   root 'lists#home'
 
   resources :lists, except: [:edit, :new]
-  resources :tasks, except: [:index, :show, :edit, :new]
+  resources :tasks, except: [:edit, :new]
     # resources :tasks
 
   # get '/lists' => 'lists#index', as: :lists
