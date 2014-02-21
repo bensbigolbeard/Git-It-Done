@@ -24,10 +24,10 @@ Todo.config(["$httpProvider", function($httpProvider) {
 Todo.config(['$routeProvider', function($routeProvider){
   // Route for '/list'
   $routeProvider
-    .when('/list/new', { templateUrl: '/assets/createList-44b6e8b5b0d68ed849cf987cd7b7b512.html', controller: 'CreateListCtrl' } )
-    .when('/list/:listId', { templateUrl: "/assets/listView-911359b020a7516ea156f262bf7ae236.html", controller: 'ListCtrl' } );
+    .when('/list/new', { templateUrl: '/assets/createList-10eec602766676ec7728f010cb5e9cdc.html', controller: 'CreateListCtrl' } )
+    .when('/list/:listId', { templateUrl: "/assets/listView-fd9492e7b81cbd77a1e32c2cd5b7a50f.html", controller: 'ListCtrl' } );
 
   //  Default
-  $routeProvider.otherwise({ templateUrl: "/assets/listIndex-deb0021553930ba8d75ca5ad929d1e37.html", controller: 'ListIndexCtrl' } );
+  $routeProvider.otherwise({ templateUrl: "/assets/listIndex-fe7243a13196dd6dc7d1db54699da9fb.html", controller: 'ListIndexCtrl' } );
 
 }]);
