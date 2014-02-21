@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+.checkmark {
+  text-align:center; 
+  line-height:40px; 
+  font-size:2em;
+}
+
+.green{
+  color:green; 
+}

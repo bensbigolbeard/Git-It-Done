@@ -32,11 +32,9 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if params[:checked] == true
-      @task.update!(
-        :checked => params[:checked]
-      )
-    end
+    @task.update!(
+      :checked => params[:checked]
+    )
     
     respond_with(@task) do |format|
       format.json {render json: @task.as_json }

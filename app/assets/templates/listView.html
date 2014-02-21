@@ -2,8 +2,8 @@
   <div class="col-md-12">
     <h1>{{currentList.title}}</h1>
 
-    <div class='row' ng-repeat='task in currentList.tasks'>
-      <div class='col-md-1' style='text-align:center; color:green; line-height:40px; font-size:2em;' ng-click="checkTask(task)">
+    <div class='row' ng-repeat='task in currentList.tasks | orderBy: "id"'>
+      <div class='col-md-1 checkmark ng-class:{green:task.checked}' style=' ' ng-click="checkTask(task)">
         <span class='glyphicon glyphicon-ok'></span>
       </div>
       <div class='col-md-6'>
