@@ -15,6 +15,7 @@ class TasksController < ApplicationController
   end
 
   def update
+    
   end
 
   def destroy

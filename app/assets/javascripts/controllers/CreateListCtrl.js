@@ -14,8 +14,15 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
     return input.id === $scope.inputs[$scope.inputs.length-1].id;
   };
 
-  $scope.createList = function(newList, tasks){
-    $http.post('/lists.json', newList)
+  $scope.clearFormFields = function() {
+    $scope.newList.title = '';
+    $scope.newList.details = '';
+    $scope.inputs = [{id: 1}];
+  };
+
+  $scope.createNewList = function(list, tasks){
+    console.log("anything", tasks);
+    $http.post('/lists.json', list)
       .then(function(response) {
           if (typeof response.data === 'object') {
             $scope.createTask(response.data, tasks)
@@ -31,12 +38,13 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
   };
 
   $scope.createTask = function (list, tasks) {
+    console.log('got to task create');
     for(var i=0;i<tasks.length;i+=1){
       tasks[i].list_id = list.id
       $http.post('/tasks.json', tasks[i])
         .then(function(response) {
           if (typeof response.data === 'object') {
-            $scope.lists[list.id].push(response);
+            console.log(i);
           } else {
             // invalid response
             return $q.reject(response.data);
@@ -46,10 +54,14 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
           // something went wrong
           return $q.reject(response.data);
       });
+      if (i === tasks.length-1){
+        $scope.clearFormFields(); 
+      }
     }
   };
+  
 
-  $scope.viewLists = function() {
+  $scope.viewLists = function(){
     $location.url('/lists');
   };
 

@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
-
+  <ul class="nav nav-pills">
+    <li class="active"><a href="#">Git It Done</a></li>
+    <li><a ng-click="viewLists()" href="#">My Lists</a></li>
+    <li><a ng-click="createList()" href="#/list/new">New List</a></li>
+  </ul>
   <%= yield %>
   <%= javascript_include_tag "application" %>
 
