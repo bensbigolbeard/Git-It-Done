@@ -8,4 +8,9 @@ angular.module('Todo').controller('ListIndexCtrl', ['$scope', '$location', 'list
   $scope.viewList = function(listId){
     $location.url('/list/'+listId)
   };
+
+  $scope.createList = function(){
+    $location.url('/list/new')
+  };
+  
 }]);

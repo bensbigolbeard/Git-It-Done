@@ -22,6 +22,14 @@ class ListsController < ApplicationController
   end
 
   def create
+    @list = List.create!(
+      :title => params[:title], 
+      :details => params[:details]
+      )
+
+    respond_with(@list) do |format|
+      format.json {render json: @list.as_json }
+    end    
   end
 
   def delete

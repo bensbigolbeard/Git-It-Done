@@ -1,12 +1,19 @@
 // depend_on_asset "listIndex.html"
 // depend_on_asset "listView.html"
 
-Todo = angular.module("Todo", ['ngRoute']);
+Todo = angular.module("Todo", ['ngRoute', 'ngSanitize']);
+
+// Adds appropriate headers to POST/PUT requests
+Todo.config(["$httpProvider", function($httpProvider) {
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = document.getElementsByName("csrf-token")[0].content;
+    return $httpProvider.defaults.headers.common['Accept'] = "application/json";
+  }
+]);
 
 Todo.config(['$routeProvider', function($routeProvider){
   // Route for '/list'
   $routeProvider
-    // .when('/list/new', { templateUrl: '../assets/mainCreateList.html', controller: 'CreateListCtrl' } )
+    .when('/list/new', { templateUrl: '/assets/createList.html', controller: 'CreateListCtrl' } )
     .when('/list/:listId', { templateUrl: "/assets/listView.html", controller: 'ListCtrl' } );
 
   //  Default

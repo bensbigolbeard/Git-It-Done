@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require angular.min.js
 //= require angular-route.min.js
+//= require angular-sanitize.min.js
 //= require angular-ui-router.min.js
 //= require main.js
 //= require_tree ./services
