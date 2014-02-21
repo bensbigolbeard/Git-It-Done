@@ -1,0 +1,11 @@
+<div class="form-group" >
+  <input type='text' placeholder='New List Title' ng-model='newList.title'>
+  <input type='text' placeholder='New List Details' ng-model='newList.details'>
+  <div ng-repeat="input in inputs">
+    <label for="input" ng-show="showInputLabel(input)">Tasks</label>
+    <input type="text" ng-model="input.title" name="" placeholder="Task">
+    <input type="text" ng-model="input.details" name="" placeholder="Task Details">
+    <button ng-show="showAddInput(input)" ng-click="addNewInput()">Add a Task</button>
+  </div>
+  <button ng-click="createList(newList, inputs)">Create List</button>
+</div>

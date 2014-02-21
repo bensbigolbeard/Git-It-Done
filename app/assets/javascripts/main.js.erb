@@ -10,23 +10,23 @@ Todo.config(["$httpProvider", function($httpProvider) {
   }
 ]);
 
-Todo.config(['$routeProvider', function($routeProvider){
-  // Route for '/list'
-  $routeProvider
-    .when('/list/new', { templateUrl: '/assets/createList.html', controller: 'CreateListCtrl' } )
-    .when('/list/:listId', { templateUrl: "/assets/listView.html", controller: 'ListCtrl' } );
-
-  //  Default
-  $routeProvider.otherwise({ templateUrl: "/assets/listIndex.html", controller: 'ListIndexCtrl' } );
-}]);
-// Use in production only for now due to asset hash filepath
 // Todo.config(['$routeProvider', function($routeProvider){
 //   // Route for '/list'
 //   $routeProvider
-//     // .when('/list/new', { templateUrl: '../assets/mainCreateList.html', controller: 'CreateListCtrl' } )
-//     .when('/list/:listId', { templateUrl: "/assets/listView-1a221c61c16e2130320ad4918fd331db.html", controller: 'ListCtrl' } );
+//     .when('/list/new', { templateUrl: '/assets/createList.html', controller: 'CreateListCtrl' } )
+//     .when('/list/:listId', { templateUrl: "/assets/listView.html", controller: 'ListCtrl' } );
 
 //   //  Default
-//   $routeProvider.otherwise({ templateUrl: "/assets/listIndex-63d1524478c466161cf537f9bf9de9d9.html", controller: 'ListIndexCtrl' } );
-
+//   $routeProvider.otherwise({ templateUrl: "/assets/listIndex.html", controller: 'ListIndexCtrl' } );
 // }]);
+// Use in production only for now due to asset hash filepath
+Todo.config(['$routeProvider', function($routeProvider){
+  // Route for '/list'
+  $routeProvider
+    .when('/list/new', { templateUrl: '/assets/createList-44b6e8b5b0d68ed849cf987cd7b7b512.html', controller: 'CreateListCtrl' } )
+    .when('/list/:listId', { templateUrl: "/assets/listView-911359b020a7516ea156f262bf7ae236.html", controller: 'ListCtrl' } );
+
+  //  Default
+  $routeProvider.otherwise({ templateUrl: "/assets/listIndex-deb0021553930ba8d75ca5ad929d1e37.html", controller: 'ListIndexCtrl' } );
+
+}]);
