@@ -11,4 +11,8 @@ angular.module('Todo').controller('ListCtrl', ['$scope', '$location', '$routePar
     $location.url('/lists');
   };
 
+  $scope.createList = function() {
+    $location.url('/list/new');
+  };
+
 }]);

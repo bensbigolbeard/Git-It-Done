@@ -18,7 +18,7 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
     $http.post('/lists.json', newList)
       .then(function(response) {
           if (typeof response.data === 'object') {
-            $scope.createTask(response.data)
+            $scope.createTask(response.data, tasks)
           } else {
               // invalid response
               return $q.reject(response.data);
@@ -30,12 +30,13 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
     });
   };
 
-  $scope.createTask = function (list) {
+  $scope.createTask = function (list, tasks) {
     for(var i=0;i<tasks.length;i+=1){
-      $http.post('/list/'+list.id+'.json', tasks[i])
+      tasks[i].list_id = list.id
+      $http.post('/tasks.json', tasks[i])
         .then(function(response) {
           if (typeof response.data === 'object') {
-            $scope.lists[list.id].push(response.data);
+            $scope.lists[list.id].push(response);
           } else {
             // invalid response
             return $q.reject(response.data);
@@ -50,6 +51,10 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
 
   $scope.viewLists = function() {
     $location.url('/lists');
+  };
+
+  $scope.createList = function() {
+    $location.url('/list/new');
   };
 
 }]);

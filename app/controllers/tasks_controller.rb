@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   respond_to :json
   
   def create
-    @list = List.find(params[:id]
+    @list = List.find(params[:list_id])
 
     @task = @list.tasks.create!(
       :title => params[:title], 
