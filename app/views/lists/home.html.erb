@@ -1,3 +1,31 @@
-<div ng-view></div>        
-       
-    
+<%= current_user_content do %>
+  <div ng-view></div>
+<% end %>
+<%= visitor_content do %>
+  <div class="login_form">
+    <%= form_for("user", :url => user_session_path) do |f| %>
+      <div class='home-sm-txt left-pad'><%= f.label "email", :email %><br />
+        <%= f.text_field :email, :autofocus => true, :class=>"" %>
+      </div>
+
+      <div class='home-sm-txt pass-pad left-pad'><%= f.label :password, "password" %><br />
+        <%= f.password_field :password, :class=>"left-pad width-100" %>
+      </div>
+      <div class='home-sm-txt left-pad'>
+      <%= f.check_box :remember_me, :class=>"left-pad" %>
+      <%= f.label :remember_me, "remember me" %><br />
+      </div class="center-div">
+        <%= button_to "SIGN IN", user_session_path, :class=>"btn sign-in-btn" %>
+      </div>
+      <%= link_to "forgot password?", new_password_path('user'), :class=>"text-muted small" %>
+    <% end %>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="login">
+      <h4 class="login-text">NEW MEMBER?</h4>
+      <p>Sign up to start creating your lists</p>
+      <%= button_to "REGISTER", new_user_registration_path, :class => "btn btn-orange login-text", :method => :get%>
+    </div>
+  </div>
+<% end %>
