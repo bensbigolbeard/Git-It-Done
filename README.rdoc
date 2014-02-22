@@ -1,28 +1,57 @@
-== README
+== Git It Done 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://git-it-done.herokuapp.com
 
-Things you may want to cover:
+This README is an overview of the project, things I have done so far, developent areas I hoped to improve in as a result of this project and feature additions I would like to make as time allows.
 
-* Ruby version
+===Project overview
 
-* System dependencies
+A basic Todo app built with:
 
-* Configuration
+* AngularJS 1.2.13
 
-* Database creation
+* Rails 4 (utilized as a REST API)
 
-* Database initialization
+* Postgres/Heroku for deployment 
 
-* How to run the test suite
+===Learning goals
 
-* Services (job queues, cache servers, search engines, etc.)
+* Gain a solid grasp of Angular routing
+* Gain more familiarity with deploying with services like Heroku
+* Achieve a deeper understanding of` Angular's various features to create a more dynamic views
+* Code more modular and single-responsibility
+  - Using shared services, multiple controllers and templates
 
-* Deployment instructions
+===MVP goals
 
-* ...
+A User can:
+* sign in
+* create tasks
+* set goal dates for tasks
+
+===Extended features 
+
+A User can: 
+* create separate lists
+* check off completed items
+* add task and list details
+* see percent completion of list(dynamically updated)
+
+===Future additions
+
+* ability to archive/delete old tasks and lists
+* fuzzy text search through all lists
+* categories for lists
+* add more specific details of individual tasks
+    like:
+      - option to add a picture
+      - task location address
+      - google map integration for address
+      - associated phone number
+        - maybe a google places integration
+      - sub lists for more multi-part tasks
+    
+  
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
