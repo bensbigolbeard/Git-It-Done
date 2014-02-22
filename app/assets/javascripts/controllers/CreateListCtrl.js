@@ -3,7 +3,7 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
   // var input = "<input type='text' placeholder='New Task Title' ng-model='newTask.title'>
   // <input type='text' placeholder='New Task Details' ng-model='newTask.details'>";
 
-  $scope.inputs = [{id: 1}];
+  $scope.inputs = [{input_id: 1}];
 
   $scope.addNewInput = function() {
     var newItemNo = $scope.inputs.length+1;
@@ -13,7 +13,7 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
   $scope.clearFormFields = function() {
     $scope.newList.title = '';
     $scope.newList.details = '';
-    $scope.inputs = [{id: 1}];
+    $scope.inputs = [{input_id: 1}];
   };
 
   $scope.createNewList = function(list, tasks){

@@ -18,13 +18,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    @list = List.find(params[:list_id])
+    @list = List.find(task_params[:list_id])
 
-    @task = @list.tasks.create!(
-      :title => params[:title], 
-      :details => params[:details],
-      :goal_date => params[:goal_date]
-      )
+    @task = @list.tasks.create!(task_params)
 
     respond_with(@task) do |format|
       format.json {render json: @task.as_json }
@@ -32,9 +28,9 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(params[:id])
+    @task = Task.find(task_params[:id])
     @task.update!(
-      :checked => params[:checked]
+      :checked => task_params[:checked]
     )
     
     respond_with(@task) do |format|
@@ -43,5 +39,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
+  end
+
+  def task_params
+    params.require(:task).permit(:title, :details, :goal_date, :checked, :list_id, :id)
   end
 end
