@@ -23,47 +23,62 @@
 }
 
 .tile-progress {
-background: #00a65b;
-color: #fff;
-margin-bottom: 20px;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
+  color: #fff;
+  margin-bottom: 20px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #303641;
 }
-.tile-progress .tile-header {
-padding: 15px 20px 0px 20px;
+.tile-header {
+  padding: 15px 20px 0px 20px;
 }
 .tile-percent-complete{
   text-align: right;
   padding-top:15px;
 }
-.tile-progress .tile-progressbar {
-height: 2px;
-background: rgba(0,0,0,0.18);
-margin: 0;
+.tile-progressbar {
+  height: 2px;
+  background: rgba(0,0,0,0.18);
+  margin: 0;
 }
-.tile-progress .tile-progressbar span {
-display: block;
-background: #fff;
-width: 0;
-height: 100%;
+.tile-progressbar span {
+  display: block;
+  background: #fff;
+  width: 0;
+  height: 100%;
+  -webkit-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+  -moz-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+  -o-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+  transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
 }
-.tile-progress .tile-footer {
-padding: 5px 20px;
-text-align: right;
-/*background: rgba(0,0,0,0.1)*/;
--webkit-border-radius: 0 0 3px 3px;
--moz-border-radius: 0 0 3px 3px;
-border-radius: 0 0 3px 3px;
-}
-.tile-progress .tile-footer{
+.tile-footer {
+  /*background overlay generated on page*/
+  padding: 5px 20px;
+  text-align: right;
   margin: auto 0;
 }
-.tile-progress {
-background-color: #303641;
-color: #fff;
+.tile-footer.row{
+  margin: auto 0;
 }
 .tile-progress.tile-aqua {
-background-color: #00c0ef;
-color: #fff;
+  background-color: #00c0ef;
+}
+.tile-progress.tile-red {
+  background-color: #f56954;
+}
+.tile-progress.tile-blue {
+  background-color: #0073b7;
+}
+.tile-progress.tile-green {
+  background-color: #00a65a;
+}
+.tile-progress.tile-cyan {
+  background-color: #00b29e;
+}
+.tile-progress.tile-purple {
+  background-color: #ba79cb;
+}
+.tile-progress.tile-pink {
+  background-color: #ec3b83;
 }

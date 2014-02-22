@@ -71,4 +71,14 @@ angular.module('Todo').controller('ListCtrl', ['$scope', '$http', '$q', '$locati
     $location.url('/list/new');
   };
 
+  $scope.randomizeColor = function(numColors){
+   
+    return Math.floor(Math.random() * (numColors));
+  };
+  
+  $scope.colors = ['aqua','red','blue','green','cyan','purple','pink'];
+
+  $scope.randColor = $scope.colors[$scope.randomizeColor($scope.colors.length)];
+
+
 }]);
