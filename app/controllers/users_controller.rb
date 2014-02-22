@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
+  respond_to :json
   before_filter :authenticate_user!
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+
+    respond_with(@user) do |format|
+      format.json {render json: @user.as_json }
+    end
   end
 
   def new

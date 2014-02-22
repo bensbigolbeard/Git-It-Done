@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   end
 
   def index
-    @lists = List.all
+    @lists = user.lists.all
     
     respond_with(@lists) do |format|
       format.json {render json: @lists.as_json(:include => :tasks) }
@@ -14,7 +14,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:id])
+    @list = user.lists.find(params[:id])
 
     respond_with(@list) do |format|
       format.json {render json: @list.as_json(:include => :tasks)}
@@ -22,7 +22,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.create!(
+    @list = user.lists.create!(
       :title => params[:title], 
       :details => params[:details]
       )
@@ -36,5 +36,11 @@ class ListsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def user
+    User.find(current_user.id)
   end
 end
