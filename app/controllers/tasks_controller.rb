@@ -41,6 +41,8 @@ class TasksController < ApplicationController
   def destroy
   end
 
+  private
+
   def task_params
     params.require(:task).permit(:title, :details, :goal_date, :checked, :list_id, :id)
   end

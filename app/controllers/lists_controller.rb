@@ -22,10 +22,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = user.lists.create!(
-      :title => params[:title], 
-      :details => params[:details]
-      )
+    @list = user.lists.create!(list_params)
 
     respond_with(@list) do |format|
       format.json {render json: @list.as_json }
@@ -42,5 +39,9 @@ class ListsController < ApplicationController
 
   def user
     User.find(current_user.id)
+  end
+
+  def list_params
+    params.require(:list).permit(:title, :details, :id)
   end
 end
