@@ -22,7 +22,8 @@ class TasksController < ApplicationController
 
     @task = @list.tasks.create!(
       :title => params[:title], 
-      :details => params[:details]
+      :details => params[:details],
+      :goal_date => params[:goal_date]
       )
 
     respond_with(@task) do |format|
