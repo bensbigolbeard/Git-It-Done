@@ -43,14 +43,13 @@ A User can:
 * fuzzy text search through all lists
 * categories for lists
 * add more specific details of individual tasks
-    like:
-      - option to add a picture
-      - task location address
-      - google map integration for address
-      - associated phone number
-        - maybe a google places integration
-      - sub lists for more multi-part tasks
-    
+  * option to add a picture
+  * task location address
+  * google map integration for address
+  * associated phone number
+    * maybe a google places integration
+  * sub lists for more multi-part tasks
+  
   
 
 
