@@ -39,9 +39,11 @@ A User can:
 
 ===Future additions
 
-* ability to archive/delete old tasks and lists
+* categories for lists and tasks
+* sort tasks (goal completion date, complete/not complete, category)
+* transitions/animations between view changes, sorting, etc.
+* ability to archive/unarchive or delete old tasks and lists
 * fuzzy text search through all lists
-* categories for lists
 * add more specific details of individual tasks
   * option to add a picture
   * task location address
