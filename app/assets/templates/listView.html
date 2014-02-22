@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="tile-progressbar">
-        <span data-fill="{{completionPercent}}%" style="width: {{completionPercent}}%;"></span>
+        <span data-fill="" style="width: {{completionPercent}}%;"></span>
       </div>
       <div ng-repeat='task in currentList.tasks | orderBy: "id"'>
         <div class="row tile-footer" style="background: rgba(0,0,0,0.{{10+($index*3)}})">

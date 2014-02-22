@@ -6,7 +6,7 @@
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
-<body class="container">
+<body ng-cloak class="container">
   <%= current_user_content do %>
     <ul class="nav nav-pills" style="margin: 0 auto">
       <li class="active"><a href="#">Git It Done</a></li>
@@ -16,7 +16,7 @@
       <li><%= link_to("Logout", destroy_user_session_path, method: "delete") %></li>
     </ul>
   <% end %>
-    <%= yield %>
+  <%= yield %>
   
   <%= javascript_include_tag "application" %>
 

@@ -52,7 +52,7 @@ body{
 .tile-progressbar span {
   display: block;
   background: #fff;
-  width: 0;
+  width: 0%;
   height: 100%;
   -webkit-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
   -moz-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);

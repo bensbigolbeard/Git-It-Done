@@ -1,26 +1,27 @@
 <div class="row">
   <div class="col-md-12"> 
-    <div ng-cloak ng-show="showList">   
+    <div ng-show="showView">   
       <div>I have {{lists.length}} lists:</div>
-        <div ng-repeat="list in lists">
-          <div class="tile-progress tile-{{randColor()}}" ng-click='viewList(list.id)'>
+      <ul>
+        <li ng-repeat="list in lists">
+          <div class="tile-progress tile-{{randColor}}" ng-click='viewList(list.id)'>
             <div class="tile-header">
               <h1>{{list.title}}</h1>
               <span>{{list.details}}</span>
               <div class='row'>
                 <div class='col-md-12'>
-                  <p class='tile-percent-complete'>{{list.tasks.length}} tasks & <strong>{{listCompletion($index)}}%</strong> complete</p>
+                  <p class='tile-percent-complete'>{{list.tasks.length}} tasks &<strong>{{completionPercent}}%</strong> complete</p>
                 </div>
               </div>
             </div>
             <div class="tile-progressbar">
-              <span data-fill="{{list.percentage}}%" style='width: {{list.percentage}}%'></span>
+              <span data-fill="{{completionPercent}}%" style="width: {{completionPercent}}%;"></span>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
-    <div ng-cloak ng-show="showMsg">
+    <div ng-hide="showView">
       <h2>Looks like you havent created any list yet</h2>
       <div class='btn btn-success' ng-click='createList()'>Start Here</div>
     </div>
