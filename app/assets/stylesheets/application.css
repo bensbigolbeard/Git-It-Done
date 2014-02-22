@@ -11,7 +11,14 @@
  *= require_self
  *= require_tree .
  */
+body{
+  background-image: url("blur.jpg");
+  background-size: cover;
+}
 
+.top-pad {
+  padding-top: 80px;
+}
 .checkmark {
   text-align:center; 
   line-height:40px; 
