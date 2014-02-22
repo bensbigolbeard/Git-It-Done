@@ -1,22 +1,40 @@
 <div class="row">
-  <div class="col-md-12">
-    <h1>{{currentList.title}}</h1>
-
-    <div class='row' ng-repeat='task in currentList.tasks | orderBy: "id"'>
-      <div class='col-md-1 checkmark ng-class:{green:task.checked}' style=' ' ng-click="checkTask(task)">
-        <span class='glyphicon glyphicon-ok'></span>
+  <div class="col-sm-4">
+    <div class="tile-progress tile-aqua">
+      <div class="tile-header">
+        <h1>{{currentList.title}}</h1>
+        <span>{{currentList.details}}</span>
+        <div class='row'>
+          <div class='col-md-12 '>
+            <p class='tile-percent-complete'><strong>{{completionPercent}}%</strong> complete</p>
+          </div>
+        </div>
       </div>
-      <div class='col-md-6'>
-        <h5>{{task.title}}</h5>
-        <p>{{task.details}}</p>
+      <div class="tile-progressbar">
+        <span data-fill="{{completionPercent}}%" style="width: {{completionPercent}}%;"></span>
       </div>
-      <div class='col-md-5'>
+      <div ng-repeat='task in currentList.tasks | orderBy: "id"'>
+        <div class="row tile-footer" style="background: rgba(0,0,0,0.{{10+($index*3)}})">
+          <div class='col-md-2 checkmark ng-class:{green:task.checked}' ng-click="checkTask(task)">
+            <span class='glyphicon glyphicon-ok'></span>
+          </div>
+          <div class='col-md-10'>
+            <div class='row'>
+              <div class='col-md-12'>
+                <h5>{{task.title}}</h5>
+              </div>
+              <div class='col-md-12'>
+                <p>{{task.details}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="form-group" >
-      <input type="text" ng-model="input.title" name="" placeholder="Task">
-      <input type="text" ng-model="input.details" name="" placeholder="Task Details">
-      <button ng-click="addTask(input)">Add Task</button>
     </div>
   </div>
+</div>
+<div class="form-group" >
+  <input type="text" ng-model="input.title" name="" placeholder="Task">
+  <input type="text" ng-model="input.details" name="" placeholder="Task Details">
+  <button ng-click="addTask(input)">Add Task</button>
 </div>

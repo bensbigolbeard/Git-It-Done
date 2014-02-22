@@ -2,9 +2,25 @@ angular.module('Todo').controller('ListCtrl', ['$scope', '$http', '$q', '$locati
   
   $scope.listId = $routeParams.listId;
 
+  $scope.completionPercent = 0;
+
+  $scope.listCompletion = function(){
+    var checked = 0;
+    for(var i=0;i<$scope.currentTasks.length;i+=1){
+      if ($scope.currentTasks[i].checked === true){
+        checked +=1;
+      }
+    }
+    $scope.completionPercent = Number((checked/$scope.currentTasks.length)*100).toFixed(2);
+  };
+
   $scope.currentList = [];
+  $scope.currentTasks = [];
+
   listsService.getCurrentList($scope.listId, function(data){
-      $scope.currentList = data;
+    $scope.currentList = data;
+    $scope.currentTasks = data.tasks;
+    $scope.listCompletion();
   });
 
   $scope.addTask = function(task) {
@@ -14,6 +30,7 @@ angular.module('Todo').controller('ListCtrl', ['$scope', '$http', '$q', '$locati
       .then(function(response) {
         if (typeof response.data === 'object') {
           $scope.currentList.tasks.push(response.data);
+          $scope.listCompletion();
           $scope.input = '';
         } else {
           // invalid response
@@ -33,9 +50,8 @@ angular.module('Todo').controller('ListCtrl', ['$scope', '$http', '$q', '$locati
     $http.put('/tasks/'+task.id+'.json', task)
       .then(function(response) {
         if (typeof response.data === 'object') {
-          // $scope.currentList.tasks.push(response.data);
           console.log('task successfully updated')
-          // $scope.checked = true;
+          $scope.listCompletion();
         } else {
           // invalid response
           return $q.reject(response.data);
