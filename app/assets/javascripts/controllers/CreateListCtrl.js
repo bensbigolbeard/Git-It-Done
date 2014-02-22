@@ -10,10 +10,6 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
     $scope.inputs.push({'id': newItemNo});
   };
 
-  $scope.showAddInput = function(input) {
-    return input.id === $scope.inputs[$scope.inputs.length-1].id;
-  };
-
   $scope.clearFormFields = function() {
     $scope.newList.title = '';
     $scope.newList.details = '';
