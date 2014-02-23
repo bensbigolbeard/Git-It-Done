@@ -56,12 +56,19 @@ body{
 .tile-header {
   padding: 15px 20px 0px 20px;
 }
-.tile-percent-complete{
-  text-align: right;
-  padding-top:15px;
+.tile-trash{
+  margin: 20px 20px 0 0;
+  opacity: .5;
+  cursor: pointer;
+}
+.tile-detail {
+  padding:0 0 0 20px;
+}
+.tile-percentage {
+  padding-right: 20px
 }
 .tile-progressbar {
-  height: 2px;
+  height: 3px;
   background: rgba(0,0,0,0.18);
   margin: 0;
 }

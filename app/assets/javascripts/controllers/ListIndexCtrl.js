@@ -21,6 +21,24 @@ angular.module('Todo').controller('ListIndexCtrl', ['$scope', '$location', 'list
     $scope.determineListView();
   });
 
+  $scope.deleteList = function(list){
+    $http.delete("/list"+list.id+".json")
+      .then(function(response) {
+        if (typeof response.data === 'object') {
+          // Call createTask function with server response and tasks as arguments
+          
+          var index = $scope.lists.indexOf(list);
+          $scope.lists.splice(index, 1);
+        } else {
+            // invalid response
+            return $q.reject(response.data);
+        }
+      }, function(response) {
+        // something went wrong
+        return $q.reject(response.data);
+      });
+  }
+
   $scope.viewList = function(listId){
     $location.url('/list/'+listId)
   };
@@ -39,7 +57,7 @@ angular.module('Todo').controller('ListIndexCtrl', ['$scope', '$location', 'list
         checked +=1;
       }
     }
-    var percent = Number((checked/tasks.length)*100).toFixed(2);
+    var percent = Number((checked/tasks.length)*100).toFixed(0);
     $scope.lists[index].percentage = percent;
     return percent;
     
