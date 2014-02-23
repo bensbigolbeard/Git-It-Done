@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html ng-app="Todo">
-<head>
-  <title>AngularTodo</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <%= csrf_meta_tags %>
-  <style type="text/css">
-    body {
-      background: url(<%= randomized_background_image %>) no-repeat top center fixed; 
-    }
-  </style>
-</head>
-<body ng-cloak class="container">
-  <%= current_user_content do %>
-    <h1 class="text-center"><a href="#">Git It Done</a></h1>
-    <div class='row '>
-      <div class='col-md-6 center-columns'>
-        <ul class="nav nav-pills left-pad">
-          <li><a ng-click="viewLists()" href="#"><span class="glyphicon glyphicon-align-justify"> My Lists</span></a></li>
-          <li><a ng-click="createList()" href="#/list/new"><span class="glyphicon glyphicon-plus"> New List</span></a></li>
-          <li><%= link_to("<span class='glyphicon glyphicon-cog'> Settings</span>".html_safe, edit_user_registration_path) %></li>
-          <li><%= link_to("<span class='glyphicon glyphicon-off'> Logout</span>".html_safe, destroy_user_session_path, method: "delete") %></li>
-        </ul>
+  <head>
+    <title>AngularTodo</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <!-- randomizes background -->
+    <style type="text/css">
+      body {
+        background: url(<%= randomized_background_image %>) no-repeat top center fixed; 
+      }
+    </style>
+  </head>
+  <body ng-cloak class="container">
+    <%= current_user_content do %>
+      <h1 class="pull-left text-white"><a href="#">Git It Done</a></h1>
+      <div class='row '>
+        <div class='col-md-6 center-columns'>
+          <ul class="nav nav-pills left-pad">
+            <li><a ng-click="viewLists()" href="#"><span class="glyphicon glyphicon-align-justify"> My Lists</span></a></li>
+            <li><a ng-click="createList()" href=""><span class="glyphicon glyphicon-plus"> New List</span></a></li>
+            <li><%= link_to("<span class='glyphicon glyphicon-cog'> Settings</span>".html_safe, edit_user_registration_path) %></li>
+            <li><%= link_to("<span class='glyphicon glyphicon-off'> Logout</span>".html_safe, destroy_user_session_path, method: "delete") %></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  <% end %>
-  <%= yield %>
-  
-  <%= javascript_include_tag "application" %>
+    <% end %>
+    <%= yield %>
+    
+    <%= javascript_include_tag "application" %>
 
-</body>
+  </body>
 </html>

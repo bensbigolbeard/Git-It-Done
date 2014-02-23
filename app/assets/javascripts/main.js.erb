@@ -1,8 +1,7 @@
-// depend_on_asset "listIndex.html"
-// depend_on_asset "listView.html"
-
 Todo = angular.module("Todo", ['ngRoute', 'ngSanitize']);
 
+
+// Custom directive to add confirmation popup to delete method call
 Todo.directive('ngReallyClick', [function() {
     return {
         restrict: 'A',
@@ -17,11 +16,14 @@ Todo.directive('ngReallyClick', [function() {
     }
 }]);
 
+
+// Reverses list array for viewing in newest to oldest
 Todo.filter('reverse', function() {
   return function(lists) {
     return lists.reverse();
   };
 });
+
 
 // Adds appropriate headers to POST/PUT requests
 Todo.config(["$httpProvider", function($httpProvider) {
@@ -30,24 +32,25 @@ Todo.config(["$httpProvider", function($httpProvider) {
   }
 ]);
 
-// Todo.config(['$routeProvider', function($routeProvider){
-//   // Route for '/list'
-//   $routeProvider
-//     .when('/list/new', { templateUrl: '/assets/createList.html', controller: 'CreateListCtrl' } )
-//     .when('/list/:listId', { templateUrl: "/assets/listView.html", controller: 'ListCtrl' } );
 
-//   //  Default
-//   $routeProvider.otherwise({ templateUrl: "/assets/listIndex.html", controller: 'ListIndexCtrl' } );
-// }]);
-
-// Use in production only for now due to asset hash filepath
 Todo.config(['$routeProvider', function($routeProvider){
   // Route for '/list'
   $routeProvider
-    .when('/list/new', { templateUrl: '/assets/createList-b1e8099e4a8012168cd42f55c74907e9.html', controller: 'CreateListCtrl' } )
-    .when('/list/:listId', { templateUrl: "/assets/listView-4d861dd7cfedb4aab9b9940fc69b55b1.html", controller: 'ListCtrl' } );
+    .when('/list/new', { templateUrl: '/assets/createList.html', controller: 'CreateListCtrl' } )
+    .when('/list/:listId', { templateUrl: "/assets/listView.html", controller: 'ListCtrl' } );
 
   //  Default
-  $routeProvider.otherwise({ templateUrl: "/assets/listIndex-1972e0207ce15a80dce0a292d45b87c0.html", controller: 'ListIndexCtrl' } );
-
+  $routeProvider.otherwise({ templateUrl: "/assets/listIndex.html", controller: 'ListIndexCtrl' } );
 }]);
+
+// Use in production only for now due to asset hash filepath
+// Todo.config(['$routeProvider', function($routeProvider){
+//   // Route for '/list'
+//   $routeProvider
+//     .when('/list/new', { templateUrl: '/assets/createList-b1e8099e4a8012168cd42f55c74907e9.html', controller: 'CreateListCtrl' } )
+//     .when('/list/:listId', { templateUrl: "/assets/listView-4d861dd7cfedb4aab9b9940fc69b55b1.html", controller: 'ListCtrl' } );
+
+//   //  Default
+//   $routeProvider.otherwise({ templateUrl: "/assets/listIndex-1972e0207ce15a80dce0a292d45b87c0.html", controller: 'ListIndexCtrl' } );
+
+// }]);

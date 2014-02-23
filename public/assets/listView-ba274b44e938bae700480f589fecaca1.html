@@ -1,3 +1,5 @@
+<!-- form for adding new task -->
+
 <h1 class="header-text">ADD A TASK</h1>
 <div class="row">
   <div class="form-group" >
@@ -15,9 +17,13 @@
   </div>
 </div>
 
+<!-- List -->
+
 <div class="row">
   <div class="col-sm-8 col-md-5 center-columns">
     <div class="tile-progress tile-{{randColor}}" >
+    
+    <!-- Header -->
       <div class="row">
         <div class="col-sm-12">
           <div class="row">
@@ -26,36 +32,65 @@
                 <h1>{{currentList.title}}</h1>
               </div>
             </div>
+
+          <!-- Trashcan  -->
             <div class='col-sm-2 text-right'>
               <span class="glyphicon glyphicon-trash lead tile-trash" ng-really-message="Are you sure"? ng-really-click="deleteList(currentList)">
               </span>
             </div>
           </div>
+          
+        <!-- List details -->
           <div class="row" ng-click='viewList(list.id)'>
             <div class="col-sm-12">
               <p class="tile-detail">{{currentList.details}}</p>
             </div>
           </div>
+
+        <!-- Completion percentage -->
           <div class="row" ng-click='viewList(list.id)'>
             <div class='col-sm-12'>
-              <p class='text-right tile-percentage'>{{current.tasks.length}} tasks & <strong>{{completionPercent}}%</strong> complete</p>
+              <p class='text-right tile-percentage'>{{currentList.tasks.length}} tasks & <strong>{{completionPercent}}%</strong> complete</p>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Progressbar -->
       <div class="tile-progressbar">
         <span data-fill="" style="width: {{completionPercent}}%;"></span>
       </div>
+
+    <!-- Tasks -->
       <div ng-repeat='task in currentList.tasks | orderBy: "id"'>
         <div class="row tile-footer" style="background: rgba(0,0,0,0.{{10+($index*4)}})">
-          <div class='col-xs-2 checkmark ng-class:{green:task.checked}' ng-click="checkTask(task)">
-            <span class='glyphicon glyphicon-ok vert-center'></span>
+          <div class='col-xs-2'>
+            <div class='row'>
+
+            <!-- Checkmark -->
+              <div class='col-xs-12 checkmark ng-class:{green:task.checked}' ng-click="checkTask(task)">
+                <span class='glyphicon glyphicon-ok vert-center'></span>
+              </div>
+            </div>
+
+          <!-- 'Do By' Date -->
+            <div class='row'>
+              <div class='col-xs-12 no-pad '>
+                <p class="text-center neg-margin-15" ng-show="task.goal_date"><small>DO IT BY:</strong></small></br> <strong>{{formattedDate(task)}}</small></p>
+              </div>
+            </div>
           </div>
           <div class='col-xs-10'>
+
+          <!-- Task Title -->
             <div class='row'>
               <div class='col-xs-12'>
-                <h5>{{task.title}}</h5>
+                <h4><strong>{{task.title}}</strong></h4>
               </div>
+            </div>
+            
+          <!-- Task Details -->
+            <div class='row'>
               <div class='col-xs-12'>
                 <p>{{task.details}}</p>
               </div>

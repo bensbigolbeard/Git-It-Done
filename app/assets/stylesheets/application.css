@@ -15,6 +15,15 @@ body{
   background-image: url("blur.jpg");
   background-size: cover;
 }
+.nav a{
+  color: white;
+}
+.nav a:hover{
+  color: #428bca;
+}
+.text-white{
+  color: white;
+}
 .vert-center{
   line-height: 50%;
 }
@@ -24,6 +33,13 @@ body{
 }
 .full-width {
   width:100%;
+}
+.neg-margin-15 {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.no-pad{
+  padding: 0 !important;
 }
 .top-pad {
   padding-top: 80px;
@@ -44,7 +60,7 @@ body{
   text-align: center;
 }
 .green{
-  color:green; 
+  color:#3fbe42; 
 }
 
 .tile-progress {

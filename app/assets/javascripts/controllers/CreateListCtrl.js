@@ -1,20 +1,47 @@
 angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$http', '$q', '$routeParams', 'listsService', function ($scope, $location, $http, $q, $routeParams, listsService) {
 
-  // Page loads with single task input
+
+// Redirect links for nav
+  $scope.viewLists = function(){
+    $location.url('/lists');
+  };
+
+  $scope.createList = function() {
+    $location.url('/list/new');
+  };
+
+
+// Page loads with single task input
   $scope.inputs = [{input_id: 1}];
 
-  // Add input on button click
+
+// Add input on button click
   $scope.addNewInput = function() {
     var newInputId = $scope.inputs.length+1;
     $scope.inputs.push({'input_id': newInputId});
   };
 
-  // Clear form after submit
+
+// Clear form after submit
   $scope.clearFormFields = function() {
     $scope.newList.title = '';
     $scope.newList.details = '';
     $scope.inputs = [{input_id: 1}];
   };
+
+
+// Selects random color for list
+  $scope.randomizeColor = function(numColors){
+   
+    return Math.floor(Math.random() * (numColors));
+  };
+  
+  $scope.colors = ['aqua','red','blue','green','cyan','purple','pink'];
+
+  $scope.randColor = $scope.colors[$scope.randomizeColor($scope.colors.length)];
+
+
+// Communicates with server
 
 // Create new list via POST to server
   $scope.createNewList = function(list, tasks){
@@ -34,6 +61,7 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
         });
     }
   };
+
 
 // Loop through tasks to POST them to server after List is created
   $scope.createTask = function (list, tasks) {
@@ -58,24 +86,5 @@ angular.module('Todo').controller('CreateListCtrl', ['$scope', '$location', '$ht
       }
     }
   };
-  
-// Redirect links for nav
-  $scope.viewLists = function(){
-    $location.url('/lists');
-  };
-
-  $scope.createList = function() {
-    $location.url('/list/new');
-  };
-
-// Selects random color for list
-  $scope.randomizeColor = function(numColors){
-   
-    return Math.floor(Math.random() * (numColors));
-  };
-  
-  $scope.colors = ['aqua','red','blue','green','cyan','purple','pink'];
-
-  $scope.randColor = $scope.colors[$scope.randomizeColor($scope.colors.length)];
 
 }]);
