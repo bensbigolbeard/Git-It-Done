@@ -15,16 +15,32 @@ body{
   background-image: url("blur.jpg");
   background-size: cover;
 }
-
+.vert-center{
+  line-height: 50%;
+}
+.center-columns {
+  float: none !important;
+  margin: 20px auto !important;
+}
+.full-width {
+  width:100%;
+}
 .top-pad {
   padding-top: 80px;
 }
+
 .checkmark {
   text-align:center; 
   line-height:40px; 
   font-size:2em;
 }
 
+.header-text {
+  font-family: 'Open Sans' , sans-serif;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
 .green{
   color:green; 
 }

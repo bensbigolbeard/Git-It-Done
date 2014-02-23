@@ -11,7 +11,7 @@ angular.module('Todo').controller('ListCtrl', ['$scope', '$http', '$q', '$locati
         checked +=1;
       }
     }
-    $scope.completionPercent = Number((checked/$scope.currentTasks.length)*100).toFixed(2);
+    $scope.completionPercent = Number((checked/$scope.currentTasks.length)*100).toFixed(0);
   };
 
   $scope.currentList = [];

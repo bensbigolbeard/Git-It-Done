@@ -6,15 +6,15 @@
       <div ng-repeat="input in inputs">
         <input type="text" class="form-control" ng-model="input.title" name="" placeholder="Task">
         <textarea class="form-control" rows="2"ng-model="input.details" name="" placeholder="Task Details"></textarea>
-        <button class="btn-small btn-success" style="width:100%" ng-click="input.addDate = !input.addDate">Add a Date</button>
+        <button class="btn-small btn-success full-width" ng-click="input.addDate = !input.addDate">Add a Date</button>
         <input type="date" class="date" ng-show="input.addDate" ng-model="input.goal_date" name="" >
       </div>
       <div class="row">
         <div class="col-xs-6">
-          <button class="btn btn-warning" style="width:100%" ng-click="addNewInput()">Add a Task</button>
+          <button class="btn btn-warning full-width" ng-click="addNewInput()">Add a Task</button>
         </div>
         <div class="col-xs-6">
-          <button class="btn btn-info" style="width:100%" ng-click="createNewList(newList, inputs)">Create List</button>
+          <button class="btn btn-info full-width" ng-click="createNewList(newList, inputs)">Create List</button>
         </div>
       </div>
     </div>

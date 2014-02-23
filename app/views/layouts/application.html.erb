@@ -5,6 +5,11 @@
   <%= stylesheet_link_tag    "application", media: "all" %>
   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <%= csrf_meta_tags %>
+  <style type="text/css">
+    body {
+      background: url(<%= randomized_background_image %>) no-repeat top center fixed; 
+    }
+  </style>
 </head>
 <body ng-cloak class="container">
   <%= current_user_content do %>

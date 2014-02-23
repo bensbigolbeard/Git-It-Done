@@ -41,7 +41,7 @@ angular.module('Todo').controller('ListIndexCtrl', ['$scope', '$location', 'list
     }
     var percent = Number((checked/tasks.length)*100).toFixed(2);
     $scope.lists[index].percentage = percent;
-    return Number((checked/tasks.length)*100).toFixed(2);
+    return percent;
     
   };
 
