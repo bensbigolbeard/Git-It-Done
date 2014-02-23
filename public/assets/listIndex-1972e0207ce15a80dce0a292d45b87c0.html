@@ -2,7 +2,7 @@
   <div class="col-md-10 col-md-offset-1"> 
     <div ng-show="showList">   
       <h1 class="header-text">I have {{lists.length}} lists:</h1>
-        <div ng-repeat="list in lists">
+        <div ng-repeat="list in lists | reverse">
           <div class="tile-progress tile-{{randColor()}}" >
             <div class="row">
               <div class="col-sm-12">
