@@ -40,6 +40,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+  
   end
 
   private

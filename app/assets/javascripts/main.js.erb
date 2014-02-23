@@ -17,6 +17,12 @@ Todo.directive('ngReallyClick', [function() {
     }
 }]);
 
+Todo.filter('reverse', function() {
+  return function(lists) {
+    return lists.slice().reverse();
+  };
+});
+
 // Adds appropriate headers to POST/PUT requests
 Todo.config(["$httpProvider", function($httpProvider) {
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = document.getElementsByName("csrf-token")[0].content;

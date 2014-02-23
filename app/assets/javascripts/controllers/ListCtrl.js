@@ -63,6 +63,23 @@ angular.module('Todo').controller('ListCtrl', ['$scope', '$http', '$q', '$locati
     });
   };
 
+  $scope.deleteList = function(list){
+    $http.delete("/lists/"+list.id+".json", list)
+      .then(function(response) {
+        if (typeof response.data === 'object') {
+          // Call viewLists function to redirect to list index after deleltion
+          
+          $scope.viewLists();
+        } else {
+            // invalid response
+            return $q.reject(response.data);
+        }
+      }, function(response) {
+        // something went wrong
+        return $q.reject(response.data);
+      });
+  }
+
   $scope.viewLists = function() {
     $location.url('/lists');
   };

@@ -1,4 +1,5 @@
-angular.module('Todo').controller('ListIndexCtrl', ['$scope', '$location', 'listsService', function ($scope, $location, listsService) {
+angular.module('Todo').controller('ListIndexCtrl', ['$scope', '$http','$q','$location', 'listsService', function ($scope, $http, $q, $location, listsService) {
+
 
   $scope.lists = [];
 
@@ -22,10 +23,10 @@ angular.module('Todo').controller('ListIndexCtrl', ['$scope', '$location', 'list
   });
 
   $scope.deleteList = function(list){
-    $http.delete("/list"+list.id+".json")
+    $http.delete("/lists/"+list.id+".json", list)
       .then(function(response) {
         if (typeof response.data === 'object') {
-          // Call createTask function with server response and tasks as arguments
+          // Grab index of list and remove it from client-side records
           
           var index = $scope.lists.indexOf(list);
           $scope.lists.splice(index, 1);

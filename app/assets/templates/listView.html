@@ -17,13 +17,29 @@
 
 <div class="row">
   <div class="col-sm-8 col-md-5 center-columns">
-    <div class="tile-progress tile-{{randColor}}">
-      <div class="tile-header">
-        <h1>{{currentList.title}}</h1>
-        <span>{{currentList.details}}</span>
-        <div class='row'>
-          <div class='col-xs-12 '>
-            <p class='tile-percent-complete text-right'><strong>{{completionPercent}}%</strong> complete</p>
+    <div class="tile-progress tile-{{randColor}}" >
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-10">
+              <div class="tile-header">
+                <h1>{{currentList.title}}</h1>
+              </div>
+            </div>
+            <div class='col-sm-2 text-right'>
+              <span class="glyphicon glyphicon-trash lead tile-trash" ng-really-message="Are you sure"? ng-really-click="deleteList(currentList)">
+              </span>
+            </div>
+          </div>
+          <div class="row" ng-click='viewList(list.id)'>
+            <div class="col-sm-12">
+              <p class="tile-detail">{{currentList.details}}</p>
+            </div>
+          </div>
+          <div class="row" ng-click='viewList(list.id)'>
+            <div class='col-sm-12'>
+              <p class='text-right tile-percentage'>{{current.tasks.length}} tasks & <strong>{{completionPercent}}%</strong> complete</p>
+            </div>
           </div>
         </div>
       </div>

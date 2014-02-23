@@ -2,7 +2,7 @@
   <div class="col-md-10 col-md-offset-1"> 
     <div ng-show="showList">   
       <h1 class="header-text">I have {{lists.length}} lists:</h1>
-        <div ng-repeat="list in lists">
+        <div ng-repeat="list in lists | reverse">
           <div class="tile-progress tile-{{randColor()}}" >
             <div class="row">
               <div class="col-sm-12">
@@ -13,7 +13,7 @@
                     </div>
                   </div>
                   <div class='col-sm-1 text-right'>
-                    <span class="glyphicon glyphicon-trash lead tile-trash" ng-really-message="Are you sure"? ng-really-click="takeAction()">
+                    <span class="glyphicon glyphicon-trash lead tile-trash" ng-really-message="Are you sure"? ng-really-click="deleteList(list)">
                     </span>
                   </div>
                 </div>

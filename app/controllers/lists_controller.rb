@@ -29,7 +29,14 @@ class ListsController < ApplicationController
     end    
   end
 
-  def delete
+  def destroy
+    @list = user.lists.find(params[:id])
+
+    @list.destroy
+
+    respond_with(@list) do |format|
+      format.json {render json: @list.as_json }
+    end
   end
 
   def update

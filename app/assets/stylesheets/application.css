@@ -28,7 +28,9 @@ body{
 .top-pad {
   padding-top: 80px;
 }
-
+.left-pad{
+  padding-left:50px !important; 
+}
 .checkmark {
   text-align:center; 
   line-height:40px; 
