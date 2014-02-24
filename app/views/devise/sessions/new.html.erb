@@ -1,17 +1,35 @@
-<h2>Sign in</h2>
-
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="row">
+    <div class="col-md-12">
+        <div class="pr-wrap">
+            <div class="pass-reset">
+                <label>
+                    Enter the email you signed up with</label>
+                <input type="email" placeholder="Email" />
+                <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+            </div>
+        </div>
+        <div class="wrap">
+            <p class="form-title">Sign In</p>
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+              <%= f.email_field :email, :placeholder => "Email" :autofocus => true %></div>
+              <%= f.password_field :password, :placeholder => "Password" %></div>
+              <%= f.submit "Sign in", :class => "btn btn-success btn-sm" %>
+              <div class="remember-forgot">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="checkbox">
+                      <% if devise_mapping.rememberable? -%>
+                        <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+                      <% end -%>
+                    </div>
+                    <% end %>
+                  </div>
+                  <div class="col-md-6 forgot-pass-content">
+                    <%= render "devise/shared/links" %>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -12,7 +12,7 @@
       }
     </style>
   </head>
-  <body ng-cloak class="container">
+  <body ng-cloak class="container" id="body">
     <%= current_user_content do %>
       <h1 class="pull-left text-white"><a href="#">Git It Done</a></h1>
       <div class='row '>
@@ -28,7 +28,7 @@
     <% end %>
     <%= yield %>
     
+    <%= yield :javascript %>
     <%= javascript_include_tag "application" %>
-
   </body>
 </html>

@@ -11,18 +11,15 @@
  *= require_self
  *= require_tree .
  */
-body{
-  background-image: url("blur.jpg");
-  background-size: cover;
-}
+
 .nav a{
-  color: white;
+  color: #fff;
 }
 .nav a:hover{
   color: #428bca;
 }
 .text-white{
-  color: white;
+  color: #fff;
 }
 .vert-center{
   line-height: 50%;
@@ -30,12 +27,6 @@ body{
 .center-columns {
   float: none !important;
   margin: 20px auto !important;
-}
-input{
-  margin:5px;
-}
-.date-input{
-  outline: none
 }
 .full-width {
   width:100%;
@@ -47,16 +38,8 @@ input{
 .no-pad{
   padding: 0 !important;
 }
-.top-pad {
-  padding-top: 80px;
-}
 .left-pad{
   padding-left:50px !important; 
-}
-.checkmark {
-  text-align:center; 
-  line-height:40px; 
-  font-size:2em;
 }
 
 .header-text {
@@ -69,6 +52,8 @@ input{
   color:#3fbe42; 
 }
 
+
+/* List Tiles */
 .tile-progress {
   color: #fff;
   margin-bottom: 20px;
@@ -115,6 +100,11 @@ input{
 .tile-footer.row{
   margin: auto 0;
 }
+.checkmark {
+  text-align:center; 
+  line-height:40px; 
+  font-size:2em;
+}
 .tile-progress.tile-aqua {
   background-color: #00c0ef;
 }
@@ -135,4 +125,130 @@ input{
 }
 .tile-progress.tile-pink {
   background-color: #ec3b83;
+}
+
+
+/* Sign In */
+.homepage-header {
+  font-family: 'Open Sans' , sans-serif;
+  font-size: 5em;
+  font-weight: 400;
+  color: #fff;
+  margin-left: -50px;
+  margin-right: -50px;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+p.form-title {
+  font-family: 'Open Sans' , sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  margin-top: 5%;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+.wrap form {
+  width: 250px;
+  margin: 0 auto;
+}
+.wrap form input[type="text"], .wrap form input[type="password"] {
+  width: 100%;
+  margin: 0;
+  padding: 5px 10px;
+  background: 0;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  outline: 0;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  color: #fff;
+  outline: 0;
+}
+.wrap ::-webkit-input-placeholder {
+   color: #fff;
+}
+
+.wrap :-moz-placeholder { /* Firefox 18- */
+   color: #fff;  
+}
+
+.wrap ::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
+}
+
+.wrap :-ms-input-placeholder {  
+   color: #fff;  
+}
+.wrap form input[type="submit"] {
+  width: 100%;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 16px;
+  outline: 0;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.wrap form input[type="submit"]:hover {
+  transition: background-color 0.5s ease;
+}
+.wrap form .remember-forgot {
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+.wrap form .forgot-pass-content {
+  min-height: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.wrap form label, .wrap form a {
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+}
+.wrap form a {
+  transition: color 0.5s ease;
+}
+.wrap form a:hover {
+  color: #2ecc71;
+}
+.register{
+  margin-top: 35px;
+}
+.register-text{
+  color: #fff;
+  text-align: center;
+  /*padding-left: 70px;*/
+}
+
+
+/* Create List Form */
+.new-list input {
+  margin-top: 20px;
+}
+.new-list input.list-input {
+  margin-top: 0;
+}
+.new-list input, .new-list button {
+  margin-bottom:5px;
+}
+.new-list textarea, .new-list button {
+  margin-top:5px;
+}
+.new-list input[type="date"].date-input{
+  outline: none;
+  margin-top:0;
+
 }

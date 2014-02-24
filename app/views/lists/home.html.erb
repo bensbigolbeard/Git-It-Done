@@ -2,30 +2,43 @@
   <div ng-view></div>
 <% end %>
 <%= visitor_content do %>
-  <div class="login_form">
-    <%= form_for("user", :url => user_session_path) do |f| %>
-      <div class='home-sm-txt left-pad'><%= f.label "email", :email %><br />
-        <%= f.text_field :email, :autofocus => true, :class=>"" %>
+  <div class="row">
+    <div class="col-md-4 center-columns">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="homepage-header">Git It Done</h1>
+        </div>
       </div>
-
-      <div class='home-sm-txt pass-pad left-pad'><%= f.label :password, "password" %><br />
-        <%= f.password_field :password, :class=>"left-pad width-100" %>
+      <div class="row">
+      <div class="col-md-12">
+          <div class="wrap">
+            <p class="form-title">Sign In</p>
+            <%= form_for("user", :url => user_session_path) do |f| %>
+              <%= f.text_field :email, :autofocus => true, :class=>"", :placeholder => "Email" %>
+              <%= f.password_field :password, :placeholder => "Password" %>
+              <%= f.submit "SIGN IN", :class => "btn btn-success btn-sm" %>
+              <div class="remember-forgot">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="checkbox">
+                      <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+                    </div>
+                  </div>
+                  <div class="col-md-6 forgot-pass-content">
+                    <%= link_to "forgot password?", new_password_path('user'), :class=>"text-muted small" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+              <div class="register">
+                <h4 class="register-text">NEW MEMBER?</h4>
+                <p class="register-text">Sign up to start creating your lists</p>
+                <%= button_to "REGISTER", new_user_registration_path, :class => "btn btn-orange login-text", :method => :get%>
+              </div>
+          </div>
+        </div>
       </div>
-      <div class='home-sm-txt left-pad'>
-      <%= f.check_box :remember_me, :class=>"left-pad" %>
-      <%= f.label :remember_me, "remember me" %><br />
-      </div class="center-div">
-        <%= button_to "SIGN IN", user_session_path, :class=>"btn sign-in-btn" %>
-      </div>
-      <%= link_to "forgot password?", new_password_path('user'), :class=>"text-muted small" %>
-    <% end %>
-  </div>
-  
-  <div class="col-md-4">
-    <div class="login">
-      <h4 class="login-text">NEW MEMBER?</h4>
-      <p>Sign up to start creating your lists</p>
-      <%= button_to "REGISTER", new_user_registration_path, :class => "btn btn-orange login-text", :method => :get%>
     </div>
   </div>
 <% end %>
+

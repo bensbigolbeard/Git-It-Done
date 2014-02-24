@@ -51,9 +51,13 @@
     </div>
 
   <!-- Alternate View When User Has No Lists -->
-    <div ng-cloak ng-show="showMsg">
-      <h2>Looks like you havent created any list yet</h2>
-      <div class='btn btn-success' ng-click='createList()'>Start Here</div>
+    <div ng-cloak ng-show="showMsg" >
+      <h2 class="text-center text-white">Looks like you havent created any list yet</h2>
+      <div class="row text-white">
+        <div class="col-md-4 center-columns">
+          <div class='btn btn-success full-width ' ng-click='createList()'>Start Here</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
