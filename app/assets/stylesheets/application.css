@@ -31,6 +31,12 @@ body{
   float: none !important;
   margin: 20px auto !important;
 }
+input{
+  margin:5px;
+}
+.date-input{
+  outline: none
+}
 .full-width {
   width:100%;
 }
