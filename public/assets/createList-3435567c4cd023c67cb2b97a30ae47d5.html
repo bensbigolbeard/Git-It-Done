@@ -1,0 +1,62 @@
+<!-- New List Form -->
+<div class="row top-pad">
+  <div class="col-md-4 col-md-offset-1">
+    <div class="form-group" >
+      <input type='text' class="form-control" placeholder='New List Title' ng-model='newList.title'>
+      <textarea class="form-control" rows="2" placeholder='New List Details' ng-model='newList.details'></textarea>
+      <div ng-repeat="input in inputs">
+        <input type="text" class="form-control" ng-model="input.title" name="" placeholder="Task">
+        <textarea class="form-control" rows="2"ng-model="input.details" name="" placeholder="Task Details"></textarea>
+        <button class="btn-small btn-success full-width" ng-click="input.addDate = !input.addDate">Add a Date</button>
+        <input type="date" class="date" ng-show="input.addDate" ng-model="input.goal_date" name="" >
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <button class="btn btn-warning full-width" ng-click="addNewInput()">Add a Task</button>
+        </div>
+        <div class="col-xs-6">
+          <button class="btn btn-info full-width" ng-click="createNewList(newList, inputs)">Create List</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New List Preview -->
+  <div class="col-md-4 col-md-offset-1">
+    <div class="tile-progress tile-{{randColor}}">
+      <div class="tile-header">
+
+        <!-- Placeholder Text -->
+        <h1 ng-hide="newList.title">My New List</h1>
+        <span ng-hide="newList.details">Need to Git It Done</span>
+
+        <!-- Replaces Placeholder Text When Form Is Filled -->
+        <h1 ng-show="newList.title">{{newList.title}}</h1>
+        <span ng-show="newList.details">{{newList.details}}</span>
+        <p></p>
+      </div>
+      <div ng-repeat='input in inputs | orderBy: "input_id"'>
+        <div class="row tile-footer" style="background: rgba(0,0,0,0.{{10+($index*4)}})">
+          <div class='col-md-12'>
+            
+          <!-- Task Header/Placeholder -->
+            <div class='row'>
+              <div class='col-md-12'>
+                <h5 ng-hide="input.title">Whatcha need to do?</h5>
+                <h5 ng-show="input.title">{{input.title}}</h5>
+              </div>
+            </div>
+
+          <!-- Task Details/Placeholder -->
+            <div class='row'>
+              <div class='col-md-12'>
+                <p ng-hide="input.details">Any details?</p>
+                <p ng-show="input.details">{{input.details}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
