@@ -19,7 +19,7 @@
         <div class='col-md-6 center-columns'>
           <ul class="nav nav-pills left-pad">
             <li><a ng-click="viewLists()" href="#"><span class="glyphicon glyphicon-align-justify"> My Lists</span></a></li>
-            <li><a ng-click="createList()" href=""><span class="glyphicon glyphicon-plus"> New List</span></a></li>
+            <li><a ng-click="createList()" href="#/list/new"><span class="glyphicon glyphicon-plus"> New List</span></a></li>
             <li><%= link_to("<span class='glyphicon glyphicon-cog'> Settings</span>".html_safe, edit_user_registration_path) %></li>
             <li><%= link_to("<span class='glyphicon glyphicon-off'> Logout</span>".html_safe, destroy_user_session_path, method: "delete") %></li>
           </ul>
