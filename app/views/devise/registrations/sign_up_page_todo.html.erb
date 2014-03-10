@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-4 center-columns">
+    <div class="wrap">
+      <p class="form-title">Sign Up</p>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= f.text_field :email, :autofocus => true, :class=>"", :placeholder => "Email" %>
+        <%= f.password_field :password, :placeholder => "Password" %>
+        <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %></div>
+
+        <%= f.submit "SIGN UP", :class => "btn btn-success btn-sm" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "devise/shared/links" %>
